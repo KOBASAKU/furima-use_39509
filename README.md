@@ -2,7 +2,7 @@
 ## usersテーブル
 | Column | Type | Option |
 |-|-|-|
-| id(PK) | integer | null: false |
+
 | nickname | string | null: false |
 | email | string | null: false, unique: true |
 | encrypted_password | string | null: false |
@@ -16,8 +16,6 @@
 
 ## itemsテーブル
 | Column | Type | Option |
-|-|-|-|
-| id(PK) | integer | null: false |
 | name | string | null: false |
 | descritption | text | null: false |
 | price | integer | null: false |
@@ -30,6 +28,8 @@
 ### Association
 - belongs_to :user
 - has_one_attached :image
+- has_one :order, dependent: :destroy
+
 
 ## orders テーブル
 | Column | Type | Option |
@@ -42,7 +42,8 @@ has_one :address
 
 ## addresses テーブル
 | Column | Type | Option |
-| prefecture | integer | null: false |
+| postal_code | string | null: false |
+| prefecture_id  | integer | null: false |
 | city | string | null: false |
 | addresses | string | null: false |
 | building | string |  |

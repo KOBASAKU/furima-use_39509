@@ -11,7 +11,6 @@
 | last_name_kana | string | null: false |
 | first_name_kana | string | null: false |
 | date_of_birth | date | null: false |
-
 ### Association
 - has_many :items
 
@@ -28,10 +27,26 @@
 | shipping_date_id | integer | null: false |
 | prefecture_id | integer | null: false |
 | user(FK) | references | null: false, foreign_key: true |
-
-
-
-
-
 ### Association
 - belongs_to :user
+- has_one_attached :image
+
+## orders テーブル
+| Column | Type | Option |
+| user | references | null: false, foreign_key: true |
+| item | references | null: false, foreign_key: true |
+### Association
+belongs_to :user
+belongs_to :item
+has_one :address
+
+## addresses テーブル
+| Column | Type | Option |
+| prefecture | integer | null: false |
+| city | string | null: false |
+| addresses | string | null: false |
+| building | string |  |
+| phone_number | string | null: false |
+| order| references | null: false, foreign_key: true |
+### Association
+belongs_to :order

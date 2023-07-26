@@ -29,9 +29,5 @@
 | prefecture_id | integer | null: false |
 | user(FK) | references | null: false, foreign_key: true |
 
-
-
-
-
 ### Association
 - belongs_to :user

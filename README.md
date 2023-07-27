@@ -13,6 +13,7 @@
 | date_of_birth | date | null: false |
 ### Association
 - has_many :items
+- has_one :order, dependent: :destroy
 
 ## itemsテーブル
 | Column | Type | Option |

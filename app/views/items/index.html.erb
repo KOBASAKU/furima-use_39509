@@ -134,15 +134,17 @@
         <%= link_to item_path(item) do %>
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
+           <% if item.order.present? %>
           <%# sold outの表示 %>
           <%# 購入済みの場合、条件分岐 %>
           <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>
-     
+          <% end %>
           <%# //購入済みの場合、条件分岐 %>
           <%# //sold outの表示 %>
         </div>
+        
         <div class='item-info'>
           <h3 class='item-name'>
             <%= item.name %>

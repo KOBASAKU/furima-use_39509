@@ -5,9 +5,8 @@ FactoryBot.define do
   prefecture { 1 }
   city { '横浜市' }
   addresses { '青山1-1-1' }
-  building { '' }
+  building { '青山マンション' }
   phone_number { '08055555555' }
-  association :user
-  association :item
+  
   end
 end

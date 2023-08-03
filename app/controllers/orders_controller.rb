@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   before_action :select_item, only: [:index, :create]
   
   def index
-    gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
+    
     @order = Order.new
     @order_address = OrderAddress.new
     return redirect_to root_path if current_user.id == @item.user.id

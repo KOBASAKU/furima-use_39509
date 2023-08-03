@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :items
   has_many :order, dependent: :destroy
 
+
+  
   validates :nickname,      presence: true
   validates :date_of_birth, presence: true
 

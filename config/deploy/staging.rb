@@ -1,20 +1,3 @@
-test:
-  service: Disk
-  root: <%= Rails.root.join("tmp/storage") %>
-
-local:
-  service: Disk
-  root: <%= Rails.root.join("storage") %>
-
-amazon:
-  service: S3
-  region: ap-northeast-1
-  bucket:sakura0210
-  access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
-  secret_access_key:  <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
-
-
-
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.

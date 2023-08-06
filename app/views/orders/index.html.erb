@@ -1,3 +1,4 @@
+<%= include_gon %>
 <%= render "shared/second-header"%>
 
 <div class='transaction-contents'>
@@ -20,6 +21,7 @@
     </div>
     <%# //購入内容の表示 %>
 
+
     <%# 支払額の表示 %>
     <div class='item-payment'>
       <h1 class='item-payment-title'>
@@ -31,9 +33,10 @@
     </div>
     <%# //支払額の表示 %>
 
-    <%= form_with model: , url: , id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
+    <%= form_with model:@order_address, data: { turbo: false },url:item_orders_path(@item.id), id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
     <%= render 'shared/error_messages', model: f.object %>
     <%# カード情報の入力 %>
+
     <div class='credit-card-form'>
       <h1 class='info-input-haedline'>
         クレジットカード情報入力
@@ -45,8 +48,8 @@
         </div>
         <div id="number-form" class="input-default"></div>
         <div class='available-card'>
-          <%= image_tag 'card_visa.gif', class: 'card-logo'%>
-          <%= image_tag 'card_mastercard.gif', class: 'card-logo'%>
+          <%= image_tag 'card-visa.gif', class: 'card-logo'%>
+          <%= image_tag 'card-mastercard.gif', class: 'card-logo'%>
           <%= image_tag 'card-jcb.gif', class: 'card-logo'%>
           <%= image_tag 'card-amex.gif', class: 'card-logo'%>
         </div>
@@ -69,6 +72,7 @@
       </div>
     </div>
     <%# //カード情報の入力 %>
+
 
     <%# 配送先の入力 %>
     <div class='shipping-address-form'>
